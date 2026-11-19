@@ -1,6 +1,6 @@
 {
   "name": "@awacloud/oconv",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "license": "AGPL-3.0-only",
   "description": "Browser-safe document conversion through a versioned pivot IR — docx/odt/xlsx/ods/pptx/odp/pdf to structured Markdown, Markdown to docx/odt/pdf, and docx/odt cross-format pairs, each call returning a machine-readable loss ledger. Zero runtime dependency beyond @awacloud/fw and the @awacloud office packages.",
   "keywords": [
@@ -35,25 +35,27 @@
   ],
   "exports": {
     ".": "./src/main.js",
-    "./src/worker.js": "./src/worker.js"
+    "./worker.js": "./src/worker.js"
   },
   "sideEffects": [
-    "./src/worker.js"
+    "./src/worker.js",
+    "./src/worker/entry.js"
   ],
   "engines": {
     "node": ">=20",
     "bun": ">=1.0"
   },
   "scripts": {
+    "gen:worker": "bun run tools/generate-worker.mjs",
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
-    "@awacloud/fonts": "1.2.0",
-    "@awacloud/fw": "0.1.0",
-    "@awacloud/md": "1.2.0",
-    "@awacloud/odf": "1.2.0",
-    "@awacloud/ooxml": "1.2.0",
-    "@awacloud/pdf": "1.2.0"
+    "@awacloud/fonts": "2.0.0",
+    "@awacloud/fw": "1.0.0",
+    "@awacloud/md": "1.2.1",
+    "@awacloud/odf": "1.3.0",
+    "@awacloud/ooxml": "1.3.0",
+    "@awacloud/pdf": "2.0.0"
   },
   "awa": {
     "maturity": "L3",
